@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Márcia & Felipe - Nosso Casamento</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Montserrat:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fdfdfb;
+            /* Fundo estilo papel */
+            color: #4a5d45;
+            /* Verde oliva do convite */
+            text-align: center;
+        }
+
+        /* --- HERO SESSION --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #f4f7f2;
+        }
+
+        .hero-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            /* Deixa a foto suave como no estilo botânico */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #d4af37;
+            margin: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin: 10px 0;
+            color: #7a8d6e;
+        }
+
+        /* --- ESTILIZAÇÃO GERAL --- */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #7a8d6e;
+            margin-block-start: 0;
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .info-box {
+            border: 1px solid #d4af37;
+            padding: 40px;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #7a8d6e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: #5f6e54;
+        }
+
+        .hashtag-box {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #7a8d6e;
+            margin: 20px 0;
+            border: 1px dashed #7a8d6e;
+            display: inline-block;
+            padding: 10px 20px;
+        }
+
+        .pix-box {
+            background: #f4f7f2;
+            padding: 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        footer {
+            padding: 80px 40px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        /* Container posicionado no canto inferior direito */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+            color: #F2C567;
+            /* Cor verde oliva do convite */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* O corpo do "mouse" ou indicador */
+        .mouse {
+            width: 22px;
+            height: 38px;
+            border: 2px solid #F2C567;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        /* A bolinha que anima descendo */
+        .wheel {
+            width: 4px;
+            height: 8px;
+            background-color: #F2C567;
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll-anim 2s infinite;
+        }
+
+        /* A setinha abaixo do mouse */
+        .arrow {
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid #F2C567;
+            border-bottom: 2px solid #F2C567;
+            transform: rotate(45deg);
+            animation: arrow-anim 2s infinite;
+        }
+
+        /* Animações */
+        @keyframes scroll-anim {
+            0% {
+                opacity: 1;
+                top: 6px;
+            }
+
+            100% {
+                opacity: 0;
+                top: 20px;
+            }
+        }
+
+        @keyframes arrow-anim {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-5px, -5px);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-indicator">
+        <span>Navegue</span>
+        <div class="mouse">
+            <div class="wheel"></div>
+        </div>
+        <div class="arrow"></div>
+    </div>
+
+    <header class="hero">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1500"
+            alt="Foto dos Noivos" class="hero-img">
+        <div class="hero-content">
+            <p style="letter-spacing: 3px; font-size: 0.9rem;">25 DE ABRIL DE 2026</p>
+            <h1>Márcia & Felipe</h1>
+            <p style="font-style: italic;">"Com alegria no coração e rodeados de amor"</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="info-box">
+            <h2>Onde será?</h2>
+            <p><strong>Villa Memora - Festas e Eventos</strong></p>
+            <p>Dois Irmãos, RS | 25/abr/2026, às 16h30</p>
+            <a href="https://maps.app.goo.gl/b2oFPmtVCoTS9ijA6" target="_blank" class="btn">Abrir Localização</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Confirmação de Presença</h2>
+        <p>Sua presença é fundamental para nós. Por favor, confirme até o dia <strong>20/02/2026</strong>.</p>
+        <a href="https://wa.me/5551992156628" target="_blank" class="btn">Confirmar via WhatsApp</a>
+    </section>
+
+    <section class="section" style="background-color: #f9faf8;">
+        <h2>No Instagram</h2>
+        <p>Compartilhe suas fotos com a nossa hashtag oficial:</p>
+        <div class="hashtag-box">#casamentoMarcia<b>e</b>Felipe</div>
+        <p style="font-size: 0.85rem;">Adoraremos ver o nosso dia pelos seus olhos!</p>
+    </section>
+
+    <section class="section">
+        <h2>Sugestão de Presentes</h2>
+        <p>Se desejar nos presentear, você pode utilizar nossa chave PIX abaixo:</p>
+        <div class="pix-box">
+            Chave PIX: 51992156628
+        </div>
+    </section>
+
+    <footer>
+        Com carinho,<br>
+        Márcia e Felipe
+    </footer>
+
+</body>
+
+</html>
