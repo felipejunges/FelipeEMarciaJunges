@@ -229,9 +229,9 @@
         .decoracao-floral {
             position: absolute;
             bottom: -10px;
-            right: -10px;
+            right: -15px;
             font-size: 2rem;
-            background: rgba(122, 141, 110, 0.5);
+            /*background: rgba(122, 141, 110, 0.5);*/
             padding: 5px;
         }
 
@@ -259,7 +259,54 @@
                 padding: 60px 20px;
             }
         }
+
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        #playPauseBtn {
+            background-color: rgba(122, 141, 110, 0.8);
+            /* Verde musgo com transparência */
+            color: white;
+            border: 1px solid #F2C567;
+            /* Amarelo floral */
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #playPauseBtn:hover {
+            background-color: #7a8d6e;
+            transform: scale(1.05);
+        }
     </style>
+
+    <script type="text/javascript">
+        function togglePlay() {
+            var audio = document.getElementById("weddingSong");
+            var btn = document.getElementById("playPauseBtn");
+            var icon = document.getElementById("musicIcon");
+
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = '<span id="musicIcon">⏸️</span> Pausar';
+            } else {
+                audio.pause();
+                btn.innerHTML = '<span id="musicIcon">🎵</span> Ouvir música';
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -280,6 +327,16 @@
             <p style="font-style: italic;">"Com alegria no coração e rodeados de amor"</p>
         </div>
     </header>
+
+    <div class="audio-player">
+        <button id="playPauseBtn" onclick="togglePlay()">
+            <span id="musicIcon">🎵</span> Ouvir música
+        </button>
+        <audio id="weddingSong" loop>
+            <source src="RHCP_Dosed.mp3" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+        </audio>
+    </div>
 
     <section class="section">
         <div class="info-box">
