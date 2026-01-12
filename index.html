@@ -198,6 +198,67 @@
                 transform: rotate(45deg) translate(5px, 5px);
             }
         }
+
+        .section-foto {
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fdfdfb;
+        }
+
+        .moldura-foto {
+            position: relative;
+            padding: 15px;
+            border: 1px solid #F2C567;
+            /* O Amarelo Floral que escolhemos */
+            display: inline-block;
+            background: white;
+            box-shadow: 0 10px 30px rgba(75, 89, 69, 0.1);
+            /* Sombra suave no verde musgo */
+        }
+
+        .imagem-casal {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            max-height: 500px;
+            /* Ajuste conforme o formato da sua foto */
+        }
+
+        .decoracao-floral {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 2rem;
+            background: rgba(122, 141, 110, 0.5);
+            padding: 5px;
+        }
+
+        .texto-foto {
+            margin-top: 10px;
+            max-width: 500px;
+        }
+
+        .texto-foto h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: rgb(107, 125, 100);
+            /* O Verde Musgo Claro que escolhemos */
+            margin-bottom: 15px;
+        }
+
+        .texto-foto p {
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Responsividade para celulares */
+        @media (max-width: 600px) {
+            .section-foto {
+                padding: 60px 20px;
+            }
+        }
     </style>
 </head>
 
@@ -229,6 +290,25 @@
         </div>
     </section>
 
+    <section class="section dicas">
+        <h2>Informações Importantes</h2>
+        <div class="dicas-container">
+            <div class="dica-item">
+                <span class="dica-icon">👗</span>
+                <h3>Dress Code</h3>
+                <p>Sugerimos o traje <strong>Passeio Completo</strong>. Como o evento começa à tarde na Villa Memora,
+                    recomendamos calçados confortáveis para aproveitar a grama e o pôr do sol.</p>
+            </div>
+
+            <div class="dica-item">
+                <span class="dica-icon">🌤️</span>
+                <h3>Clima em Dois Irmãos</h3>
+                <p>Em abril, as tardes costumam ser agradáveis, mas a temperatura pode cair ao anoitecer. Um agasalho
+                    leve é bem-vindo!</p>
+            </div>
+        </div>
+    </section>
+
     <section class="section">
         <h2>Confirmação de Presença</h2>
         <p>Sua presença é fundamental para nós. Por favor, confirme até o dia <strong>20/02/2026</strong>.</p>
@@ -247,6 +327,18 @@
         <p>Se desejar nos presentear, você pode utilizar nossa chave PIX abaixo:</p>
         <div class="pix-box">
             Chave PIX: 51992156628
+        </div>
+    </section>
+
+    <section class="section-foto">
+        <div class="moldura-foto">
+            <img src="fotoMF.jpeg" alt="Márcia e Felipe" class="imagem-casal">
+            <div class="decoracao-floral">🌿</div>
+        </div>
+        <div class="texto-foto">
+            <h3>Nossa Jornada</h3>
+            <p>Cada detalhe da nossa história nos trouxe até aqui, e mal podemos esperar para começar este novo capítulo
+                com vocês.</p>
         </div>
     </section>
 
