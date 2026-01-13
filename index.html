@@ -6,7 +6,7 @@
 
     <meta property="og:title" content="Márcia & Felipe - Nosso Casamento">
     <meta property="og:description" content="Márcia & Felipe - 25/abr/2026 - Villa Memora, Dois Irmãos, RS">
-    <meta property="og:image" content="https://marciaefelipejunges.com.br/cartoon.jpeg">
+    <meta property="og:image" content="https://marciaefelipejunges.com.br/cartoonNoTextSmall.jpeg">
     <meta property="og:url" content="https://marciaefelipejunges.com.br/">
 
     <meta charset="UTF-8">
@@ -407,15 +407,48 @@
     </section>
 
     <section class="section-foto">
-        <div class="moldura-foto">
-            <img src="fotoMF.jpeg" alt="Márcia e Felipe" class="imagem-casal">
-            <div class="decoracao-floral">🌿</div>
+        <div class="moldura-foto" style="position: relative; max-width: 500px; margin: auto;">
+            <button id="prevBtn" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: 2px solid #d4af37; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #7a8d6e; cursor: pointer; z-index: 2; box-shadow: 0 2px 8px rgba(212,175,55,0.08); transition: border-color 0.2s, color 0.2s;">&#10094;</button>
+            <img id="carouselImg" src="fotoMF.jpeg" alt="Márcia e Felipe" class="imagem-casal" style="transition: opacity 0.5s;">
+            <div id="carouselDecor" class="decoracao-floral">🌿</div>
+            <button id="nextBtn" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: 2px solid #d4af37; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #7a8d6e; cursor: pointer; z-index: 2; box-shadow: 0 2px 8px rgba(212,175,55,0.08); transition: border-color 0.2s, color 0.2s;">&#10095;</button>
         </div>
         <div class="texto-foto">
             <h3>Nossa Jornada</h3>
             <p>Cada detalhe da nossa história nos trouxe até aqui, e mal podemos esperar para começar este novo capítulo
                 com vocês.</p>
         </div>
+        <script>
+            const images = [
+                { src: 'fotoMF.jpeg', alt: 'Márcia e Felipe', decor: '🌿' },
+                { src: 'cartoon.jpeg', alt: 'Caricatura dos Noivos', decor: '🎨' },
+                { src: 'aliancas.jpeg', alt: 'Alianças', decor: '💍' },
+                { src: 'kerb.jpeg', alt: 'Kerb 2025', decor: '🇩🇪' }
+            ];
+            let current = 0;
+            const img = document.getElementById('carouselImg');
+            const decor = document.getElementById('carouselDecor');
+            document.getElementById('prevBtn').onclick = function() {
+                current = (current - 1 + images.length) % images.length;
+                img.style.opacity = 0;
+                setTimeout(() => {
+                    img.src = images[current].src;
+                    img.alt = images[current].alt;
+                    decor.textContent = images[current].decor;
+                    img.style.opacity = 1;
+                }, 250);
+            };
+            document.getElementById('nextBtn').onclick = function() {
+                current = (current + 1) % images.length;
+                img.style.opacity = 0;
+                setTimeout(() => {
+                    img.src = images[current].src;
+                    img.alt = images[current].alt;
+                    decor.textContent = images[current].decor;
+                    img.style.opacity = 1;
+                }, 250);
+            };
+        </script>
     </section>
 
     <footer>
