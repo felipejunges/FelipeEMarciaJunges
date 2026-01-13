@@ -26,6 +26,7 @@
             color: #4a5d45;
             /* Verde oliva do convite */
             text-align: center;
+            line-height: 1.8;
         }
 
         /* --- HERO SESSION --- */
@@ -51,9 +52,12 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid #d4af37;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
             margin: 20px;
         }
 
@@ -70,6 +74,16 @@
             font-size: 2.2rem;
             color: #7a8d6e;
             margin-block-start: 0;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: #d4af37;
+            margin: 15px auto 30px;
         }
 
         .section {
@@ -80,9 +94,11 @@
 
         .info-box {
             border: 1px solid #d4af37;
-            padding: 40px;
+            padding: 50px 30px;
             margin: 20px 0;
             background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(75, 89, 69, 0.05);
         }
 
         .btn {
@@ -91,16 +107,20 @@
             background-color: #7a8d6e;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             margin-top: 20px;
             transition: 0.3s;
             text-transform: uppercase;
             font-size: 0.8rem;
             letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(122, 141, 110, 0.3);
+            font-weight: 600;
         }
 
         .btn:hover {
             background-color: #5f6e54;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(122, 141, 110, 0.5);
         }
 
         .hashtag-box {
@@ -109,16 +129,44 @@
             color: #7a8d6e;
             margin: 20px 0;
             border: 1px dashed #7a8d6e;
+            background: white;
             display: inline-block;
-            padding: 10px 20px;
+            padding: 15px 30px;
+            border-radius: 50px;
         }
 
         .pix-box {
-            background: #f4f7f2;
-            padding: 20px;
-            border-radius: 8px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px dashed #d4af37;
             font-weight: bold;
             margin-top: 10px;
+            color: #7a8d6e;
+        }
+
+        /* Dicas Styles */
+        .dicas-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .dica-item {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 3px solid #d4af37;
+        }
+
+        .dica-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 10px;
         }
 
         footer {
@@ -293,6 +341,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         #playPauseBtn:hover {
@@ -408,10 +457,10 @@
 
     <section class="section-foto">
         <div class="moldura-foto" style="position: relative; max-width: 500px; margin: auto;">
-            <button id="prevBtn" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: 2px solid #d4af37; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #7a8d6e; cursor: pointer; z-index: 2; box-shadow: 0 2px 8px rgba(212,175,55,0.08); transition: border-color 0.2s, color 0.2s;">&#10094;</button>
+            <button id="prevBtn" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: white; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #7a8d6e; cursor: pointer; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s;">&#10094;</button>
             <img id="carouselImg" src="fotoMF.jpeg" alt="Márcia e Felipe" class="imagem-casal" style="transition: opacity 0.5s;">
             <div id="carouselDecor" class="decoracao-floral">🌿</div>
-            <button id="nextBtn" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: 2px solid #d4af37; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #7a8d6e; cursor: pointer; z-index: 2; box-shadow: 0 2px 8px rgba(212,175,55,0.08); transition: border-color 0.2s, color 0.2s;">&#10095;</button>
+            <button id="nextBtn" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: white; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #7a8d6e; cursor: pointer; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s;">&#10095;</button>
         </div>
         <div class="texto-foto">
             <h3>Nossa Jornada</h3>
