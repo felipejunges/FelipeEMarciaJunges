@@ -334,15 +334,6 @@
             border-radius: 6px;
         }
 
-        .decoracao-floral {
-            position: absolute;
-            bottom: -10px;
-            right: -15px;
-            font-size: 2rem;
-            /*background: rgba(122, 141, 110, 0.5);*/
-            padding: 5px;
-        }
-
         .texto-foto {
             margin-top: 10px;
             max-width: 500px;
@@ -509,7 +500,6 @@
     <section class="section-foto">
         <div class="moldura-foto" style="position: relative; max-width: 500px; margin: auto;">
             <img id="carouselImg" src="photos/IMG_6968.jpeg" alt="Márcia e Felipe" class="imagem-casal" style="transition: opacity 0.5s;">
-            <div id="carouselDecor" class="decoracao-floral">🌿</div>
         </div>
         <div class="miniaturas-wrapper">
             <div id="miniaturasTrack" class="miniaturas-track"></div>
@@ -521,16 +511,15 @@
         </div>
         <script>
             const images = [
-                { file: 'IMG_6968', alt: 'Márcia e Felipe', decor: '🌿' },
-                { file: 'IMG_6951', alt: 'Caricatura dos Noivos', decor: '🎨' },
-                { file: 'IMG_6938', alt: 'Alianças', decor: '💍' },
-                { file: 'IMG_6976', alt: 'Kerb 2025', decor: '🇩🇪' },
-                { file: 'aliancas', alt: 'Alianças', decor: '💍' },
-                { file: 'IMG_6955', alt: 'Foto do Casal', decor: '❤️' }
+                { file: 'IMG_6968', alt: 'Márcia e Felipe' },
+                { file: 'IMG_6951', alt: 'Caricatura dos Noivos' },
+                { file: 'IMG_6938', alt: 'Alianças' },
+                { file: 'IMG_6976', alt: 'Kerb 2025' },
+                { file: 'aliancas', alt: 'Alianças' },
+                { file: 'IMG_6955', alt: 'Foto do Casal' }
             ];
             let current = 0;
             const img = document.getElementById('carouselImg');
-            const decor = document.getElementById('carouselDecor');
 
             const miniaturasTrack = document.getElementById('miniaturasTrack');
 
@@ -548,7 +537,6 @@
                 setTimeout(() => {
                     img.src = getImageSrc(images[current]);
                     img.alt = images[current].alt;
-                    decor.textContent = images[current].decor;
                     img.style.opacity = 1;
                     atualizarMiniaturaAtiva();
                 }, 250);
