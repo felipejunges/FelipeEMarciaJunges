@@ -290,13 +290,48 @@
             /* Ajuste conforme o formato da sua foto */
         }
 
-        .decoracao-floral {
-            position: absolute;
-            bottom: -10px;
-            right: -15px;
-            font-size: 2rem;
-            /*background: rgba(122, 141, 110, 0.5);*/
-            padding: 5px;
+        .miniaturas-wrapper {
+            margin-top: 16px;
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            justify-content: center;
+            padding: 4px;
+        }
+
+        .miniaturas-track {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .miniatura-btn {
+            border: 2px solid transparent;
+            border-radius: 8px;
+            background: white;
+            padding: 0;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: border-color 0.2s, transform 0.2s;
+            flex: 0 0 auto;
+        }
+
+        .miniatura-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .miniatura-btn.ativa {
+            border-color: #d4af37;
+        }
+
+        .miniatura-btn img {
+            width: 90px;
+            height: 60px;
+            display: block;
+            object-fit: cover;
+            border-radius: 6px;
         }
 
         .texto-foto {
@@ -464,10 +499,10 @@
 
     <section class="section-foto">
         <div class="moldura-foto" style="position: relative; max-width: 500px; margin: auto;">
-            <button id="prevBtn" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: white; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #7a8d6e; cursor: pointer; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s;">&#10094;</button>
-            <img id="carouselImg" src="fotoMF.jpeg" alt="Márcia e Felipe" class="imagem-casal" style="transition: opacity 0.5s;">
-            <div id="carouselDecor" class="decoracao-floral">🌿</div>
-            <button id="nextBtn" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: white; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #7a8d6e; cursor: pointer; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s;">&#10095;</button>
+            <img id="carouselImg" src="photos/IMG_6968.jpeg" alt="Márcia e Felipe" class="imagem-casal" style="transition: opacity 0.5s;">
+        </div>
+        <div class="miniaturas-wrapper">
+            <div id="miniaturasTrack" class="miniaturas-track"></div>
         </div>
         <div class="texto-foto">
             <h3>Nossa Jornada</h3>
@@ -476,34 +511,55 @@
         </div>
         <script>
             const images = [
-                { src: 'fotoMF.jpeg', alt: 'Márcia e Felipe', decor: '🌿' },
-                { src: 'cartoon.jpeg', alt: 'Caricatura dos Noivos', decor: '🎨' },
-                { src: 'aliancas.jpeg', alt: 'Alianças', decor: '💍' },
-                { src: 'kerb.jpeg', alt: 'Kerb 2025', decor: '🇩🇪' }
+                { file: 'IMG_6968', alt: 'Márcia e Felipe' },
+                { file: 'IMG_6951', alt: 'Caricatura dos Noivos' },
+                { file: 'IMG_6938', alt: 'Alianças' },
+                { file: 'IMG_6976', alt: 'Kerb 2025' },
+                { file: 'aliancas', alt: 'Alianças' },
+                { file: 'IMG_6955', alt: 'Foto do Casal' }
             ];
             let current = 0;
             const img = document.getElementById('carouselImg');
-            const decor = document.getElementById('carouselDecor');
-            document.getElementById('prevBtn').onclick = function() {
-                current = (current - 1 + images.length) % images.length;
+
+            const miniaturasTrack = document.getElementById('miniaturasTrack');
+
+            function getImageSrc(item) {
+                return `photos/${item.file}.jpeg`;
+            }
+
+            function getThumbSrc(item) {
+                return `photos/${item.file}_mini.jpeg`;
+            }
+
+            function showImage(index) {
+                current = index;
                 img.style.opacity = 0;
                 setTimeout(() => {
-                    img.src = images[current].src;
+                    img.src = getImageSrc(images[current]);
                     img.alt = images[current].alt;
-                    decor.textContent = images[current].decor;
                     img.style.opacity = 1;
+                    atualizarMiniaturaAtiva();
                 }, 250);
-            };
-            document.getElementById('nextBtn').onclick = function() {
-                current = (current + 1) % images.length;
-                img.style.opacity = 0;
-                setTimeout(() => {
-                    img.src = images[current].src;
-                    img.alt = images[current].alt;
-                    decor.textContent = images[current].decor;
-                    img.style.opacity = 1;
-                }, 250);
-            };
+            }
+
+            function atualizarMiniaturaAtiva() {
+                const miniaturas = miniaturasTrack.querySelectorAll('.miniatura-btn');
+                miniaturas.forEach((btn, index) => {
+                    btn.classList.toggle('ativa', index === current);
+                });
+            }
+
+            images.forEach((item, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'miniatura-btn';
+                btn.type = 'button';
+                btn.setAttribute('aria-label', `Abrir imagem ${index + 1}`);
+                btn.innerHTML = `<img src="${getThumbSrc(item)}" alt="Miniatura ${index + 1}">`;
+                btn.addEventListener('click', () => showImage(index));
+                miniaturasTrack.appendChild(btn);
+            });
+
+            atualizarMiniaturaAtiva();
         </script>
     </section>
 
